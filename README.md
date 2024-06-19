@@ -48,6 +48,7 @@ AI-IMAGE-RANKER/
 ├── package-lock.json
 ├── package.json
 └── README.md
+```
 
 ## Adding Images
 
