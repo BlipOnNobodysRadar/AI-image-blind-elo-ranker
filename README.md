@@ -31,7 +31,8 @@ This is a quick and dirty Node.js project to rate the Elo of both individual AI-
 
 ## Directory Structure
 
-    AI-IMAGE-RANKER/
+```
+AI-IMAGE-RANKER/
 ├── backend/
 │   └── server.js
 ├── frontend/
@@ -48,6 +49,7 @@ This is a quick and dirty Node.js project to rate the Elo of both individual AI-
 ├── package-lock.json
 ├── package.json
 └── README.md
+```
 
 ## Adding Images
 
