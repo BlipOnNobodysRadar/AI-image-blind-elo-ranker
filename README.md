@@ -48,7 +48,7 @@ AI-IMAGE-RANKER/
 ├── package-lock.json
 ├── package.json
 └── README.md
-```
+
 ## Adding Images
 
 - Place your images in one of the subset directories inside the images directory (e.g., `images/placeholder subset/`).
