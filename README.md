@@ -12,8 +12,8 @@ This is a quick and dirty Node.js project to rate the Elo of both individual AI-
 1. **Clone the repository**:
 
    ```sh
-   git clone <repository-url>
-   cd <repository-directory>
+    git clone https://github.com/BlipOnNobodysRadar/AI-image-blind-elo-ranker.git
+    cd AI-image-blind-elo-ranker
    ```
 2. **Install dependencies**
     ```sh
@@ -30,8 +30,8 @@ This is a quick and dirty Node.js project to rate the Elo of both individual AI-
     Navigate to `http://localhost:3000` in your web browser.
 
 ## Directory Structure
-
-    AI-IMAGE-RANKER/
+```
+AI-IMAGE-RANKER/
 ├── backend/
 │   └── server.js
 ├── frontend/
@@ -48,7 +48,7 @@ This is a quick and dirty Node.js project to rate the Elo of both individual AI-
 ├── package-lock.json
 ├── package.json
 └── README.md
-
+```
 ## Adding Images
 
 - Place your images in one of the subset directories inside the images directory (e.g., `images/placeholder subset/`).
