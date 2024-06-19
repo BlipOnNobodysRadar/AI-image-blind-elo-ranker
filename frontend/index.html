@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Image Elo Ranker</title>
+  <style>
+    .image-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 50px;
+    }
+    .image-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      cursor: pointer;
+    }
+    .navigation {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navigation">
+    <label for="subset-select">Select Subset:</label>
+    <select id="subset-select" onchange="changeSubset()">
+      <!-- Options will be dynamically populated -->
+    </select>
+  </div>
+  <div class="image-container">
+    <div class="image-wrapper">
+      <img id="image1" src="" alt="Image 1" onclick="vote(1)">
+      <button onclick="confirmDelete(1)">Delete Image 1</button>
+    </div>
+    <div class="image-wrapper">
+      <img id="image2" src="" alt="Image 2" onclick="vote(2)">
+      <button onclick="confirmDelete(2)">Delete Image 2</button>
+    </div>
+  </div>
+  <div class="navigation">
+    <a href="rankings.html">View Elo Rankings</a>
+    <a href="lora-rankings.html">View Lora Rankings</a>
+  </div>
+  <script src="script.js" defer></script>
+</body>
+</html>

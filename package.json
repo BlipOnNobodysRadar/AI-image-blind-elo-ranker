@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "png-chunk-text": "^1.0.0",
+    "png-chunks-encode": "^1.0.0",
+    "png-chunks-extract": "^1.0.0",
+    "png-metadata": "^1.0.2",
+    "pngjs": "^7.0.0"
+  }
+}

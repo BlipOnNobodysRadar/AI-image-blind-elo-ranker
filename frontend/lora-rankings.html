@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lora Model Elo Rankings</title>
+  <div class="navigation">
+    <a href="index.html">Rate Images</a>
+    <a href="rankings.html">View Image Elo Rankings</a>
+  </div>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+    }
+    .ranking-container {
+      width: 80%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .ranking-item {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    .subset-select {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="subset-select">
+    <label for="subset">Choose a subset:</label>
+    <select id="subset" onchange="changeSubset()">
+      <!-- Options will be dynamically populated here -->
+    </select>
+  </div>
+  <h1>Lora Model Elo Rankings</h1>
+  <div class="ranking-container" id="ranking-container">
+    <!-- Rankings will be dynamically inserted here -->
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      fetchSubsets();
+    });
+
+    async function fetchSubsets() {
+      const response = await fetch('/api/subsets');
+      const subsets = await response.json();
+      const subsetSelect = document.getElementById('subset');
+      subsetSelect.innerHTML = ''; // Clear any existing options
+      subsets.forEach(subset => {
+        const option = document.createElement('option');
+        option.value = subset;
+        option.textContent = subset;
+        subsetSelect.appendChild(option);
+      });
+      const currentSubset = new URLSearchParams(window.location.search).get('subset') || subsets[0];
+      subsetSelect.value = currentSubset;
+      fetchRankings(currentSubset);
+    }
+
+    function changeSubset() {
+      const subset = document.getElementById('subset').value;
+      window.location.search = `?subset=${subset}`;
+    }
+
+    function fetchRankings(subset) {
+      fetch(`/api/lora-rankings/${subset}`)
+        .then(response => response.json())
+        .then(data => {
+          const rankingContainer = document.getElementById('ranking-container');
+          rankingContainer.innerHTML = '';
+          data.forEach(item => {
+            const rankingItem = document.createElement('div');
+            rankingItem.className = 'ranking-item';
+            rankingItem.innerHTML = `
+              <span>${item.lora} (Matches: ${item.matches})</span>
+              <span>Elo: ${item.elo}</span>
+            `;
+            rankingContainer.appendChild(rankingItem);
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching rankings:', error);
+        });
+    }
+  </script>
+</body>
+</html>
