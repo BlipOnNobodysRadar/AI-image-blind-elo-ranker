@@ -52,8 +52,9 @@ AI-IMAGE-RANKER/
 
 ## Adding Images
 
-- Place your images in one of the subset directories inside the images directory (e.g., `images/placeholder subset/`).
+- Place your images in one of the subset directories inside the images directory (e.g., `images/placeholder subset/`). You can add any arbitrary folder to make more subsets.
 - Ensure the images are in `.jpg`, `.jpeg`, `.png`, `.webp`, or `.gif` format.
+- To extract metadata with loras, the image is expected to be a .png with metadata in the format outputted by auto1111's webui
 
 ## Deleting Images
 
